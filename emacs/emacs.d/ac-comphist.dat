@@ -1,0 +1,26 @@
+((("m_levelSetValues" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("m_levelSet" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("void" .
+   [1 0 0 0])
+  ("m_bodyCenter" .
+   [0 0 0 0 0 0 0 0 0 0 0 1])
+  ("m_bodyCenterDt2" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("m_bodyCenterDt1" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 2 0 0])
+  ("m_timeStep" .
+   [0 0 0 0 0 0 1 0 0 2])
+  ("m_dampingCoefficient" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("globalTimeStep" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("halfCellWidth" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("m_noChildIds" .
+   [0 0 0 0 0 1 0 0 0 0 0 0])
+  ("m_refLSVlength" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("m_secondaryReconstructionNghbrsBnd" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])))

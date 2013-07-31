@@ -1,0 +1,4 @@
+ruby main.rb 
+echo $TESTPOOL
+export TESTPOOL=~/test_pool
+ruby main.rb 

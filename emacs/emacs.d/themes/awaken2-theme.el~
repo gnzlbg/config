@@ -1,0 +1,102 @@
+;; Awaken2
+
+(unless (>= 24 emacs-major-version)
+  (error "awaken-theme requires Emacs 24 or later."))
+
+(deftheme awaken2
+  "Awaken2 color theme")
+
+(let ((awaken2-blue-light "#89BDFF")
+      (awaken2-gray "#595959")
+      (awaken2-gray-darker "#383830")
+      (awaken2-gray-darkest "#141411")
+      (awaken2-gray-lightest "#595959")
+      (awaken2-gray-light "#E6E6E6")
+      (awaken2-green "#A6E22A")
+      (awaken2-green-light "#A6E22E")
+      (awaken2-grey-dark "#272822")
+      (awaken2-magenta "#F92672")
+      (awaken2-purple "#AE81FF")
+      (awaken2-purple-light "#FD5FF1")
+      (awaken2-yellow "#E6DB74")
+      (awaken2-yellow-dark "#75715E")
+      (awaken2-yellow-light "#F8F8F2")
+      (background "#000000")
+      (foreground "#ffffff")
+      (types "#fdec86")
+      (function-names "#fadc35")
+      (user-defined-types "#a7f7b8")
+      ;; (type-modifier-keywords "#a7f7b8") ;; static, const, mutable, volatile, constexpr
+      (keywords "#efa335") ;; all other keywords
+      (namespaces "#fadc35")
+      (comment "#388bfb")
+      ;(variables "#8959a8")
+      (variables "#89BDFF")
+      (character-strings "#718c00")
+      (numbers "#e5474b")
+      (preprocessor "#c82829")
+      (warning "#c82829")
+      (current-line "#000000")
+      (selection "#3e999f")
+      (cursor "#aeafad")
+      )
+
+  (make-face 'font-lock-type-mods-face)
+  ;(set-face-foreground 'font-lock-type-mods-face "pink")
+
+  (font-lock-add-keywords
+   'c++-mode '(
+               ("\\<\\(TODO:\\|ASSERT\\|TRACE_IN\\|TRACE_OUT\\|TRACE_IN_\\)\\>" 1 font-lock-warning-face prepend)
+               ("\\<\\(const\\|static\\)\\>" 1 font-lock-warning-face prepend)
+               )
+   )
+
+  ;;("\\<\\(static\\|constexpr\\|const\\)\\>" 1 font-lock-type-mods-face)
+
+  (custom-theme-set-faces
+   'awaken2
+   ;; Frame
+   `(default               ((t (:foreground ,foreground :background ,background))))
+   `(cursor                ((t (:foreground ,foreground))))
+   `(hl-line               ((t (:background ,background))))
+   `(minibuffer-prompt     ((t (:foreground ,comment))))
+   `(modeline              ((t (:background ,current-line :foreground ,foreground))))
+   `(region                ((t (:background ,selection))))
+   `(show-paren-match-face ((t (:background ,awaken2-gray-darker))))
+   ;; Main
+   `(font-lock-builtin-face       ((t (:foreground ,warning))))
+   `(font-lock-comment-face       ((t (:foreground ,comment))))
+   `(font-lock-constant-face      ((t (:foreground ,namespaces))))
+   `(font-lock-doc-string-face    ((t (:foreground ,comment))))
+   `(font-lock-function-name-face ((t (:foreground ,function-names))))
+   `(font-lock-keyword-face       ((t (:foreground ,keywords))))
+   `(font-lock-string-face        ((t (:foreground ,character-strings))))
+   `(font-lock-type-face          ((t (:foreground ,types))))
+   `(font-lock-variable-name-face ((t (:foreground ,variables))))
+   `(font-lock-warning-face       ((t (:bold t :foreground ,warning))))
+   `(font-lock-preprocessor-face  ((t (:foreground ,preprocessor))))
+   `(font-lock-negation-char-face ((t (:foreground ,numbers))))
+   `(font-lock-type-mods-face   e ((t (:foreground ,selection))))
+   ;; CUA
+   `(cua-rectangle                ((t (:background ,awaken2-gray-darkest))))
+   ;; IDO
+   `(ido-first-match              ((t (:foreground ,awaken2-purple))))
+   `(ido-only-match               ((t (:foreground ,awaken2-green))))
+   `(ido-subdir                   ((t (:foreground ,awaken2-blue-light))))
+   ;; Whitespace
+   `(whitespace-space             ((t (:foreground ,awaken2-gray))))
+   ;; Yasnippet
+   `(yas/field-highlight-face     ((t (:background ,awaken2-gray-darker))))))
+
+;;;###autoload
+(when load-file-name
+  (add-to-list 'custom-theme-load-path
+               (file-name-as-directory (file-name-directory load-file-name))))
+
+(provide-theme 'awaken2)
+
+;; Local Variables:
+;; no-byte-compile: t
+;; End:
+
+;;; awaken2-theme.el ends here

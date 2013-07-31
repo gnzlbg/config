@@ -1,0 +1,211 @@
+;; Awaken2
+
+(unless (>= 24 emacs-major-version)
+  (error "awaken-theme requires Emacs 24 or later."))
+
+(deftheme awaken
+  "Awaken color theme")
+
+(let ((awaken-blue-light "#89BDFF")
+      (awaken-gray "#595959")
+      (awaken-gray-darker "#383830")
+      (awaken-gray-darkest "#141411")
+      (awaken-gray-lightest "#595959")
+      (awaken-gray-light "#E6E6E6")
+      (awaken-green "#A6E22A")
+      (awaken-green-light "#A6E22E")
+      (awaken-grey-dark "#272822")
+      (awaken-magenta "#F92672")
+      (awaken-purple "#AE81FF")
+      (awaken-purple-light "#FD5FF1")
+      (awaken-yellow "#E6DB74")
+      (awaken-yellow-dark "#75715E")
+      (awaken-yellow-light "#F8F8F2")
+      (background "#000000")
+      (foreground "#ffffff")
+      (types "#fdec86")
+      (function-names "#fadc35")
+      (type-mod-keyws "#a7f7b8") ;; static, const, mutable, volatile, constexpr
+      ;(type-mod-keyws "#388bfb")
+      (keywords "#efa335") ;; all other keywords
+      (namespaces "#fadc35")
+      (comment "#388bfb")
+      ;(comment "#a7f7b8")
+      (variables "#8959a8")
+      (variables "#ffffff")
+      ;(variables "#89BDFF")
+      (character-strings "#718c00")
+      (numbers "#e5474b")
+      (preprocessor "#c82829")
+      (warning "#c82829")
+      (current-line "#000000")
+      ;(selection "#3e999f")
+      (selection "#282828")
+      (cursor "#aeafad")
+      )
+  
+
+  ;; (defun cpp-add-keywords (face-name keywords)
+  ;;   ( (defvar keyword-regexp (regexp-opt keywords))
+  ;;     (font-lock-add-keywords 'c++-mode
+  ;;                             `((,keyword-regexp 1 ',face-name)))
+  ;;     )
+  ;;   )
+ 
+  (cpp-add-keywords
+   'font-lock-keyword-face
+   '((const)
+    (static)
+    (auto)
+    (decltype)
+    ))
+
+  (make-face 'font-lock-type-mods-face)
+  (set-face-foreground 'font-lock-type-mods-face type-mod-keyws)
+
+  ;; (keyword-regexp (concat "(\\(" (regexp-opt keyword-list)
+  ;;                                 "\\)[ \n]")))
+
+   ;; (defun add-custom-type-mod-keyw()
+   ;;   (font-lock-add-keywords nil
+   ;;    '(
+   ;;      (regexp-opt '("auto" "const" "static" "decltype") 'word) . 'font-lock-type-mods-face ) )
+   ;;      )
+   ;;    )
+   ;;  )
+
+  (defun add-custom-type-mod-keyw()
+    (font-lock-add-keywords nil
+                            '(
+                              ("\\(auto\\|const\\|decltype\\|static\\)" . 'font-lock-type-mods-face)
+                              )
+                            )
+    )
+
+  (add-hook 'c++-mode-hook 'add-custom-type-mod-keyw)
+  (add-hook 'c-mode-hook 'add-custom-type-mod-keyw)
+
+  (make-face 'font-lock-extra-types-face)
+  (set-face-foreground 'font-lock-extra-types-face types)
+
+  (defun add-custom-extra-types-keyw()
+    (font-lock-add-keywords nil
+                            '(
+                              ("\\<\\(template\\)" . 'font-lock-extra-types-face)
+                              ("\\<\\(class\\)" .    'font-lock-extra-types-face)
+                              ("\\<\\(struct\\)" .   'font-lock-extra-types-face)
+                              )
+                            )
+    )
+
+  (add-hook 'c++-mode-hook 'add-custom-extra-types-keyw)
+  (add-hook 'c-mode-hook 'add-custom-extra-types-keyw)
+
+  (make-face 'font-lock-num-consts-face)
+  (set-face-foreground 'font-lock-num-consts-face numbers)
+
+  (defun add-custom-num-const-keyw()
+    (font-lock-add-keywords nil
+                            '(
+                              ("\\([0-9]\\)" . 'font-lock-num-consts-face)
+                              )
+                            )
+    )
+
+
+  (add-hook 'c++-mode-hook 'add-custom-num-const-keyw)
+  (add-hook 'c-mode-hook 'add-custom-num-const-keyw)
+
+  ;; (make-face 'font-lock-built-type-face)
+  ;; (set-face-foreground 'font-lock-built-type-face types)
+
+  ;; (defun add-custom-type-mod-keyw()
+  ;;   (font-lock-add-keywords nil
+  ;;                           '(
+  ;;                             ("\\<\\(size_t\)" .     'font-lock-type-mods-face)
+  ;;                             ("\\<\\(int\\)" .    'font-lock-type-mods-face)
+  ;;                             ("\\<\\(float\\)" . 'font-lock-type-mods-face)
+  ;;                             ("\\<\\(double\\)" .   'font-lock-type-mods-face)
+  ;;                             ("\\<\\(long\\)" .  'font-lock-type-mods-face)
+  ;;                             ("\\<\\(unsigned\\)" .  'font-lock-type-mods-face)
+  ;;                             ("\\<\\(char\\)" .     'font-lock-type-mods-face)
+  ;;                             ("\\<\\(struct\\)" .    'font-lock-type-mods-face)
+  ;;                             )
+  ;;                           )
+  ;;   )
+
+
+
+  (font-lock-add-keywords
+   'c++-mode
+   '(
+     ("\\<\\(TODO:\\|ASSERT\\|TRACE_IN\\|TRACE_OUT\\|TRACE_IN_\\)\\>" 1 font-lock-warning-face prepend)
+     )
+   )
+
+  ;;("\\<\\(static\\|constexpr\\|const\\)\\>" 1 font-lock-type-mods-face)
+
+  (custom-theme-set-faces
+   'awaken
+   ;; Frame
+   `(default               ((t (:foreground ,foreground :background ,background))))
+   `(cursor                ((t (:foreground ,foreground))))
+   `(hl-line               ((t (:background ,background))))
+   `(minibuffer-prompt     ((t (:foreground ,comment))))
+   `(modeline              ((t (:background ,current-line :foreground ,foreground))))
+   `(region                ((t (:background ,selection))))
+   `(show-paren-match-face ((t (:background ,awaken-gray-darker))))
+   ;; Main
+   `(font-lock-builtin-face       ((t (:foreground ,warning))))
+   `(font-lock-comment-face       ((t (:foreground ,comment))))
+   `(font-lock-constant-face      ((t (:foreground ,namespaces))))
+   `(font-lock-doc-string-face    ((t (:foreground ,comment))))
+   `(font-lock-keyword-face       ((t (:foreground ,keywords))))
+   `(font-lock-function-name-face ((t (:foreground ,function-names))))
+   `(font-lock-string-face        ((t (:foreground ,character-strings))))
+   `(font-lock-type-face          ((t (:foreground ,types))))
+   `(font-lock-variable-name-face ((t (:foreground ,variables))))
+   `(font-lock-warning-face       ((t (:bold t :foreground ,warning))))
+   `(font-lock-preprocessor-face  ((t (:foreground ,preprocessor))))
+   `(font-lock-negation-char-face ((t (:foreground ,numbers))))
+   `(font-lock-type-mods-face     ((t (:foreground ,type-mod-keyws))))
+   `(font-lock-extra-types-face   ((t (:foreground ,types))))
+   ;; CUA
+   `(cua-rectangle                ((t (:background ,awaken-gray-darkest))))
+   ;; IDO
+   `(ido-first-match              ((t (:foreground ,awaken-purple))))
+   `(ido-only-match               ((t (:foreground ,awaken-green))))
+   `(ido-subdir                   ((t (:foreground ,awaken-blue-light))))
+   ;; Whitespace
+   `(whitespace-space             ((t (:foreground ,awaken-gray))))
+   ;; Yasnippet
+   `(yas/field-highlight-face     ((t (:background ,awaken-gray-darker))))))
+
+
+  ;; (make-face 'font-lock-function-calls-face)
+  ;; (set-face-foreground 'font-lock-function-calls-face function-names)
+
+
+  ;; (defun add-custom-function-calls-keyw()
+  ;;   (font-lock-add-keywords nil
+  ;;                           '(
+  ;;                             ("\\(\\w+\\)\\s-*\(" . 'font-lock-function-calls-face)
+  ;;                             )
+  ;;                           )
+  ;;   )
+
+  ;; (add-hook 'c++-mode-hook 'add-custom-function-calls-keyw)
+  ;; (add-hook 'c-mode-hook 'add-custom-function-calls-keyw)
+
+;;;###autoload
+(when load-file-name
+  (add-to-list 'custom-theme-load-path
+               (file-name-as-directory (file-name-directory load-file-name))))
+
+(provide-theme 'awaken)
+
+;; Local Variables:
+;; no-byte-compile: t
+;; End:
+
+;;; awaken-theme.el ends here

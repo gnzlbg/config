@@ -1,0 +1,52 @@
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/lib/vector.h
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/lib/#vector.h#
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/lib/matrix.h
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/lib/#matrix.h#
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/lib/solvers.cpp
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/lib/#solvers.cpp#
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/lib/operations.h
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/lib/#operations.h#
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/lib/operations.cpp
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/lib/#operations.cpp#
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/lib/solvers.h
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/lib/#solvers.h#
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/homeworks/homework3.cpp
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/homeworks/#homework3.cpp#
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/homeworks/CMakeLists.txt
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/homeworks/#CMakeLists.txt#
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/lib/matrix.cpp
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/lib/#matrix.cpp#
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/data/simpleMatUnsortedDefective.mtx
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/data/#simpleMatUnsortedDefective.mtx#
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/data/simpleMatUnsortedZeroDiag.mtx
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/data/#simpleMatUnsortedZeroDiag.mtx#
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/data/simpleMatUnsorted.mtx
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/data/#simpleMatUnsorted.mtx#
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/tests/debug.cpp
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/tests/#debug.cpp#
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/CMakeLists.txt
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/#CMakeLists.txt#
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/homeworks/homework2.cpp
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/homeworks/#homework2.cpp#
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/homeworks/homework2_problem1.dat
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/homeworks/#homework2_problem1.dat#
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/lib/vector.cpp
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/lib/#vector.cpp#
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/lib/CMakeLists.txt
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/lib/#CMakeLists.txt#
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/homeworks/homework1.cpp
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/homeworks/#homework1.cpp#
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/lib/fisLib.h
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/lib/#fisLib.h#
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/data/simpSym.mtx
+/aia/r015/home/gonzalo/Projects/PhD Courses/FIS/data/#simpSym.mtx#
+/aia/r015/home/gonzalo/Projects/PhD
+/aia/r015/home/gonzalo/Projects/#PhD#
+/usr/include/c++/4.5/bits/stl_vector.h
+/usr/include/c++/4.5/bits/#stl_vector.h#
+/usr/include/c++/4.5/fstream
+/usr/include/c++/4.5/#fstream#
+/usr/include/c++/4.5/istream
+/usr/include/c++/4.5/#istream#
+/usr/include/c++/4.5/bits/basic_ios.h
+/usr/include/c++/4.5/bits/#basic_ios.h#
